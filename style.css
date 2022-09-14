@@ -28,3 +28,14 @@ hr {
 textarea {
   resize: none;
 }
+
+#submit-btn {
+  width: 60px;
+  height: 20px;
+  margin-top: 10px;
+  align-self: center;
+}
+
+#label-infos {
+  align-self: center;
+}
