@@ -20,3 +20,7 @@ main {
 #trybewarts-forms-logo {
   height: 500px;
 }
+
+hr {
+    width: 500px;
+}
