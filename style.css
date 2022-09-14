@@ -24,3 +24,7 @@ main {
 hr {
     width: 500px;
 }
+
+textarea {
+    resize: none;
+}
