@@ -14,10 +14,10 @@ function validaForm() {
 
 button.addEventListener('click', validaForm);
 
-checkbox18.onchange = function habilita () {
+checkbox18.onchange = function habilita() {
   if (checkbox18.checked) {
     checkButton.disabled = false;
   } else {
     checkButton.disabled = true;
   }
-}
+};
