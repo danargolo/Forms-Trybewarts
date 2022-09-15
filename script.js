@@ -30,11 +30,11 @@ text.oninput = function count() {
   counter.innerText = `${(text.getAttribute('maxlength') - text.value.length)} / 500`;
 };
 
-function hide() {
-  const form = document.getElementById('evaluation-form');
-  const formData = document.getElementById('form-data');
-  form.style.display = 'none';
-  formData.style.display = 'flex';
-}
+// function hide() {
+//   const form = document.getElementById('evaluation-form');
+//   const formData = document.getElementById('form-data');
+//   form.style.display = 'none';
+//   formData.style.display = 'flex';
+// }
 
-checkButton.addEventListener('input', hide);
+// checkButton.addEventListener('input', hide);
