@@ -21,3 +21,11 @@ checkbox18.onchange = function habilita() {
     checkButton.disabled = true;
   }
 };
+
+const counter = document.getElementById('counter');
+const text = document.getElementById('textarea');
+counter.innerText = `${text.getAttribute('maxlength')} / 500`;
+
+text.oninput = function count() {
+  counter.innerText = `${(text.getAttribute('maxlength') - text.value.length)} / 500`;
+};
