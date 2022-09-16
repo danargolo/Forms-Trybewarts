@@ -15,10 +15,6 @@
   flex-direction: column;
 }
 
-#form-data {
-  display:none;
-}
-
 main {
   display: flex;
 }
@@ -47,6 +43,6 @@ textarea {
 }
 
 #counter {
-  text-align:  end;
+  text-align: end;
   margin: 8px 5px 16px;
 }
