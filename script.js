@@ -7,23 +7,14 @@ const family = document.querySelectorAll('.fam');
 const subject = document.querySelectorAll('.subject');
 const rate = document.querySelectorAll('.rate');
 
-function validaForm() {
-  if (formEmail.value === 'tryber@teste.com' && formSenha.value === '123456') {
-    alert('Olá, Tryber!');
-  } else {
-    return alert('Email ou senha inválidos.');
-  }
-}
+button.addEventListener('click', () => {
+  formEmail.value === 'tryber@teste.com' && formSenha.value === '123456' ? alert('Olá, Tryber!') : 
+  alert('Email ou senha inválidos.');
+});
 
-button.addEventListener('click', validaForm);
-
-checkbox18.onchange = function habilita() {
-  if (checkbox18.checked) {
-    checkButton.disabled = false;
-  } else {
-    checkButton.disabled = true;
-  }
-};
+checkbox18.addEventListener('change', () => {
+  checkbox18.checked ? checkButton.disabled = false : checkButton.disabled = true;
+})
 
 const counter = document.getElementById('counter');
 const text = document.getElementById('textarea');
