@@ -1,11 +1,12 @@
-const button = document.getElementById('btnForm');
 const formEmail = document.getElementById('email');
 const formSenha = document.getElementById('senha');
 const checkButton = document.getElementById('submit-btn');
-const checkbox18 = document.getElementById('agreement');
+const checkbox = document.getElementById('agreement');
 const family = document.querySelectorAll('.fam');
 const subject = document.querySelectorAll('.subject');
 const rate = document.querySelectorAll('.rate');
+const firstName = document.getElementById('input-name');
+const lastName = document.getElementById('input-lastname');
 
 function validaForm() {
   if (formEmail.value === 'tryber@teste.com' && formSenha.value === '123456') {
@@ -15,10 +16,10 @@ function validaForm() {
   }
 }
 
-button.addEventListener('click', validaForm);
+document.getElementById('btnForm').addEventListener('click', validaForm);
 
-checkbox18.onchange = function habilita() {
-  if (checkbox18.checked) {
+checkbox.onchange = function habilita() {
+  if (checkbox.checked) {
     checkButton.disabled = false;
   } else {
     checkButton.disabled = true;
@@ -34,68 +35,41 @@ text.oninput = function count() {
 };
 
 function hide() {
-  const form = document.getElementById('evaluation-form');
-  const formData = document.getElementById('form-data');
-  form.style.display = 'none';
-  formData.style.display = 'flex';
+  document.getElementById('evaluation-form').style.display = 'none';
+  document.getElementById('form-data').style.display = 'flex';
 }
 
-function formName() {
-  const nameAnwser = document.getElementById('form-name');
-  const name = document.getElementById('input-name');
-  const lastName = document.getElementById('input-lastname');
-
-  nameAnwser.innerText = `Nome: ${name.value} ${lastName.value}`;
-}
-
-function formEmailHouse() {
-  const emailAnwser = document.getElementById('form-email');
-  const houseAnwser = document.getElementById('form-house');
-
-  emailAnwser.innerText = `Email: ${document.getElementById('input-email').value}`;
-  houseAnwser.innerText = `Casa: ${document.getElementById('house').value}`;
-}
-
-function formFamily() {
-  const famAnwser = document.getElementById('form-family');
-
-  for (let index = 0; index < family.length; index += 1) {
-    if (family[index].checked) {
-      famAnwser.innerText = `Família: ${family[index].value}`;
+function completeAwnser(par1, par2, par3) {
+  for (let index = 0; index < par1.length; index += 1) {
+    if (par1[index].checked) {
+      document.getElementById(par2).innerText = `${par3}: ${par1[index].value}`;
     }
   }
 }
 
 function formSubject() {
-  const subAwnser = document.getElementById('form-subject');
   const subs = [];
-
   for (let index = 0; index < subject.length; index += 1) {
     if (subject[index].checked) {
       subs.push(` ${subject[index].value}`);
     }
   }
-  subAwnser.innerText = `Matérias: ${subs}`;
+  document.getElementById('form-subject').innerText = `Matérias: ${subs}`;
 }
 
-function formRate() {
-  const rateAnwser = document.getElementById('form-rate');
-
-  for (let index = 0; index < rate.length; index += 1) {
-    if (rate[index].checked) {
-      rateAnwser.innerText = `Avaliação: ${rate[index].value}`;
-    }
-  }
-}
-
+const nameAnwser = document.getElementById('form-name');
+const emailAnwser = document.getElementById('form-email');
+const houseAnwser = document.getElementById('form-house');
 const textAnwser = document.getElementById('form-textarea');
 
-checkButton.addEventListener('click', () => {
+checkButton.addEventListener('click', (param) => {
+  param.preventDefault();
   hide();
-  formName();
-  formEmailHouse();
-  formFamily();
+  nameAnwser.innerText = `Nome: ${firstName.value} ${lastName.value}`;
+  emailAnwser.innerText = `Email: ${document.getElementById('input-email').value}`;
+  houseAnwser.innerText = `Casa: ${document.getElementById('house').value}`;
+  completeAwnser(family, 'form-family', 'Família');
+  completeAwnser(rate, 'form-rate', 'Avaliação');
   formSubject();
-  formRate();
   textAnwser.innerText = `Observações: ${text.value}`;
 });

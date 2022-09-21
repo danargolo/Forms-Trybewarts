@@ -17,6 +17,7 @@
 
 #form-data {
   display: none;
+  flex-direction: column;
 }
 
 main {
